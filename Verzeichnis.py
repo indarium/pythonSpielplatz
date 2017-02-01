@@ -10,8 +10,10 @@ def search(path):
             if os.path.isdir(currentElement)==False:
                 fileslist.append(currentElement)
             else:
+                fileslist = fileslist + search(currentElement)
     return fileslist
 
-search(path)
-for file in fileslist:
-    print file
+fl = []
+fl = search(path)
+for file in fl:
+  print file
