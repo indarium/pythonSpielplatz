@@ -56,7 +56,7 @@ def Exif(iPath):
 for dir in dirSearch():
  #path = dir
  #fl = []
- fl = search(dir)
- for file in fl:
+ files = search(dir)
+ for file in files:
    print file
    Exif(file)
