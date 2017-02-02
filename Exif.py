@@ -18,4 +18,4 @@ tagMdl = metadata['Exif.Image.Model']
 print tagMdl.raw_value
 # Aufnahmedatum anzeigen
 tagTime = metadata['Exif.Image.DateTime']
-print tagTime.raw_value
+print tagTime.value.year
