@@ -1,5 +1,8 @@
 import pyexiv2
-metadata = pyexiv2.ImageMetadata('C:\Users\paull\Downloads\DSC_1332.jpg')
+
+
+def Exif(iPath):
+metadata = pyexiv2.ImageMetadata('iPath')
 metadata.read()
 # Alle keys anzeigen
 metadata.exif_keys
