@@ -1,8 +1,9 @@
-import os, sys, re, string,pyexiv2
+import os, sys, re, string, pyexiv2, shutil
 
 
 
 def search(path):
+    filetype = '.jpg'
     fileslist = []
     if os.path.isdir(path):
         elements = os.listdir( path )
