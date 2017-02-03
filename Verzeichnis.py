@@ -53,6 +53,24 @@ def Exif(iPath):
     print tagTime.raw_value
 
 
+def copy(source, dest):
+    dest = 'C:/Users/paull/Documents/'
+ #if os.path.exists(dest) == False:
+    print(dest)
+    print(source)
+    shutil.copy2(source, dest)
+    sourceStat = os.stat(source)
+    destStat = os.stat(dest)
+    #if destStat.st_size == sourceStat.st_size:
+    os.remove(source)
+    print('File erfolgreich kopiert')
+    #else:
+        #print('Kopiervorgang fehlgschlagen')
+ #else:
+#     print('File bereits vorhanden')
+
+
+
 
 for dir in dirSearch():
  #path = dir
@@ -61,3 +79,4 @@ for dir in dirSearch():
  for file in files:
    print file
    Exif(file)
+   copy(file, '')

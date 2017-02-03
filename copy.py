@@ -1,8 +1,9 @@
 import os, sys, re, string, pyexiv2, shutil
 
+cfile = ''
 source = 'C:/Test/DSC_1332.jpg'
-dest = 'C:/Users/paull/Documents/DSC_1332.jpg'
-def copy(source, dest):
+dest = 'C:/Users/paull/Documents/'
+def copy(cfile, source, dest):
 
  if os.path.exists(dest) == False:
     shutil.copy2(source, dest)
