@@ -1,33 +1,38 @@
-import os, sys, re, string, pyexiv2, shutil
-
-
+import logging
+import os
+import pyexiv2
+import string
 
 def search(path):
+    logging.info('search for images in %s' % path)
     filetype = '.jpg'
     fileslist = []
     if os.path.isdir(path):
-        elements = os.listdir( path )
+        elements = os.listdir(path)
         for element in elements:
             currentElement = os.path.join(path, element)
-            if os.path.isdir(currentElement)==False:
-                  fileslist.append(currentElement)
+            if os.path.isdir(currentElement) == False:
+                fileslist.append(currentElement)
             else:
                 fileslist = fileslist + search(currentElement)
     return fileslist
 
+
 def dirSearch():
+    logging.info("dirSearch")
     directory = 'DCIM'
 
     available_drives = ['%s:/' % d for d in string.ascii_uppercase if os.path.exists('%s:/' % d)]
     camList = []
     for drive in available_drives:
-        if os.path.exists('%s/%s'%(drive, directory)) == True:
+        if os.path.exists('%s/%s' % (drive, directory)) == True:
 
             camList.append(os.path.join(drive, directory))
-            print('%s ist eine Kamera' %drive)
+            print('%s ist eine Kamera' % drive)
         else:
-            print('%s is keine Kamera' %drive)
+            print('%s is keine Kamera' % drive)
     return camList
+
 
 def Exif(iPath):
     metadata = pyexiv2.ImageMetadata(iPath)
@@ -52,7 +57,6 @@ def Exif(iPath):
     print tagTime.value.year
     print tagTime.raw_value
 
-
 def copy(source, dest):
     dest = 'C:/Users/paull/Documents/'
  #if os.path.exists(dest) == False:
@@ -70,8 +74,8 @@ def copy(source, dest):
 #     print('File bereits vorhanden')
 
 
-
-
+logging.basicConfig(level=logging.DEBUG)
+logging.info("starting")
 for dir in dirSearch():
  #path = dir
  #fl = []
