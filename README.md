@@ -1,5 +1,12 @@
 # pythonSpielplatz
 Nur ein paar python Experimente
 
-Test
-Test2
+## requirments
+
+* python 2
+* http://tilloy.net/dev/pyexiv2/overview.html
+
+## good to read
+
+* https://docs.python.org/2/howto/logging.html#logging-basic-tutorial
+
